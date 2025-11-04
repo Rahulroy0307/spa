@@ -160,6 +160,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: flex-start;
 }
 
 .section-heading,
@@ -945,7 +946,7 @@ h3 {
     flex-direction: column;
     text-align: center;
     padding: 30px 20px;
-      margin-top: -256px;
+      margin-top: -7px;
   }
 
   .hero-text h1 {
@@ -962,8 +963,8 @@ h3 {
   .hero-image img {
     max-width: 100%;
     height: auto;
-    /* padding: 40px 57px; */
-    margin-top: 30px;
+    padding: 28px 29px;
+    margin-top: -70px;
   }
 
   .hero-image {
