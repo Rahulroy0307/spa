@@ -570,21 +570,30 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
 
   <script>
-    function revealGalleryItems() {
-      const galleryItems = document.querySelectorAll('.gallery-grid a');
-      const triggerBottom = window.innerHeight * 0.9;
+  function revealGalleryItems() {
+    const galleryItems = document.querySelectorAll('.gallery-grid a');
+    const triggerBottom = window.innerHeight * 0.9;
 
-      galleryItems.forEach(item => {
-        const boxTop = item.getBoundingClientRect().top;
-        if (boxTop < triggerBottom) {
-          item.classList.add('visible');
-        }
-      });
-    }
+    galleryItems.forEach(item => {
+      const boxTop = item.getBoundingClientRect().top;
+      if (boxTop < triggerBottom) {
+        item.classList.add('visible');
+      }
+    });
+  }
 
-    window.addEventListener('scroll', revealGalleryItems);
-    window.addEventListener('load', revealGalleryItems);
-  </script>
+  // Run on scroll (for animation as you go down)
+  window.addEventListener('scroll', revealGalleryItems);
+
+  // On load: immediately make everything visible,
+  // then still keep scroll reveal active
+  window.addEventListener('load', () => {
+    const galleryItems = document.querySelectorAll('.gallery-grid a');
+    galleryItems.forEach(item => item.classList.add('visible'));
+    revealGalleryItems();
+  });
+</script>
+
   <script>
     document.getElementById('menuToggle').addEventListener('click', () => {
       document.getElementById('navLinks').classList.toggle('show');
